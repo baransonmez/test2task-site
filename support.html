@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Get help with test2task. Report bugs using synthetic or redacted examples, without exposing credentials or private captured data."
+    />
+    <title>Support | test2task</title>
+    <link rel="icon" href="./icon.png" type="image/png" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="brand" href="./"><img src="./icon.png" width="36" height="36" alt="" />test2task</a>
+      <nav aria-label="Main navigation">
+        <a href="./privacy.html">Privacy</a><a href="./support.html" aria-current="page">Support</a>
+      </nav>
+    </header>
+    <main id="main" class="document">
+      <p class="eyebrow">SUPPORT</p>
+      <h1>Tell us what happened.</h1>
+      <p class="intro">
+        Use the public GitHub issue tracker for bugs, questions, and feature requests. A GitHub
+        account is required to submit an issue.
+      </p>
+      <a class="button" href="https://github.com/baransonmez/test2task-site/issues/new/choose"
+        >Open a support request</a
+      >
+      <aside class="notice" aria-label="Public data warning">
+        <strong>Support issues are public.</strong> Never post passwords, API tokens, Authorization
+        headers, unredacted logs, site-storage snapshots, private Jira URLs, or screenshots/video
+        containing confidential information. Use a synthetic example instead.
+      </aside>
+      <h2>Helpful details</h2>
+      <ul>
+        <li>Extension version and Chrome version.</li>
+        <li>Your operating system.</li>
+        <li>
+          Whether the problem affects screenshots, recording, annotation, settings, or Jira
+          submission.
+        </li>
+        <li>
+          Steps to reproduce, expected behavior, actual behavior, and a sanitized error message.
+        </li>
+        <li>
+          Whether Jira is Server or Data Center. Do not include private hostnames or credentials.
+        </li>
+      </ul>
+      <h2>Before reporting</h2>
+      <ul>
+        <li>
+          Reload the extension at <code>chrome://extensions</code> and reopen its popup after an
+          update.
+        </li>
+        <li>
+          Use an HTTPS Jira base URL, including the correct context path. API redirects are
+          rejected.
+        </li>
+        <li>Try capture on a normal webpage, not a restricted browser page.</li>
+        <li>
+          For recording, click Record and confirm the first-use disclosure unless you previously
+          remembered approval.
+        </li>
+        <li>
+          Stop recordings before attaching them. An attachment failure can occur after the issue was
+          created; check the returned issue link before creating another issue.
+        </li>
+      </ul>
+      <h2>Privacy questions</h2>
+      <p>
+        Read the <a href="./privacy.html">privacy policy</a>. You may open a support request about
+        privacy without posting personal data or captured evidence. If sensitive details are
+        necessary, first request a private contact channel without including those details in the
+        public issue.
+      </p>
+      <p>
+        Clear Credentials removes the credentials stored by the extension, but does not revoke a
+        Jira token. Clear/reset captured evidence when no longer needed. Uploaded content must be
+        managed through your Jira instance; downloaded files must be deleted separately.
+      </p>
+    </main>
+    <footer class="site-footer">
+      <span>test2task / Jira Server and Data Center</span
+      ><a href="./privacy.html">Privacy policy</a>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The test2task privacy policy: captured evidence, Jira credentials, local storage, permissions, consent, and retention.">
+  <title>Privacy Policy | test2task</title>
+  <link rel="icon" href="./icon.png" type="image/png">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header"><a class="brand" href="./"><img src="./icon.png" width="36" height="36" alt="">test2task</a><nav aria-label="Main navigation"><a href="./privacy.html" aria-current="page">Privacy</a><a href="./support.html">Support</a></nav></header>
+  <main id="main" class="document"><h1>test2task Privacy Policy</h1>
+<p>Last updated: 2026-11-16</p>
+<h2>Summary</h2>
+<p>test2task is a Chrome extension for user-directed evidence capture and Jira Server/Data Center issue creation. It processes data locally and sends issue content and selected evidence to the Jira instance you configure. It has no developer telemetry, analytics, or developer-operated data collection servers, and does not sell user data.</p>
+<h2>Data we collect and why</h2>
+<p>The extension handles the following information to provide its visible features:</p>
+<ul>
+<li>Authentication information: your configured Jira username, password or personal access token (PAT), authentication method, and Jira base URL. Credentials authenticate requests to your Jira instance.</li>
+<li>User-provided issue text and settings: summary, description, labels, components, assignee, custom fields, templates, and defaults. These may contain personal information.</li>
+<li>Website content: screenshots and annotations, tab video without audio, and optional page localStorage keys and values selected for an attachment. These can contain private content, personal information, or secrets.</li>
+<li>Browsing activity and diagnostics: captured page/request URLs, network requests and responses including headers and bodies, console warnings/errors, and exceptions during a log recording. These can contain credentials, personal information, and activity on the recorded tab.</li>
+<li>Optional description metadata: page URL, timestamp, and browser information. Automatic metadata inclusion defaults OFF for fresh settings; existing explicit settings are preserved. Review issue text before submitting.</li>
+<li>Local workflow state: drafts, recorded evidence, recent issue history (up to 20 entries), and suggestions (up to 12 entries).</li>
+</ul>
+<p>This information is used to configure and test your Jira connection, capture and review evidence, maintain local workflow state, create issues, and attach the evidence you select. It is not used for advertising or unrelated profiling.</p>
+<h2>Capture, consent, and review</h2>
+<ul>
+<li>On first use of log or video recording, a visible in-popup disclosure explains what will be collected and that recording continues after the popup closes. You may select Remember my choice before clicking Start recording. That approval is stored locally, separately for logs and video, and permits subsequent Record clicks to start that feature without repeating the disclosure. Recording never starts automatically. Without a remembered approval, the disclosure appears on each start. Cancelling or closing the disclosure captures nothing and does not remember approval.</li>
+<li>Settings provides Reset recording approvals, which makes the next recording ask again. This does not stop an active recording, revoke browser permissions, or delete evidence. Material changes to a feature&#39;s disclosure or capture scope require renewed approval for that feature. Stop recording explicitly when finished.</li>
+<li>Recording and uploading are separate choices. Log/video attachment checkboxes default OFF for a new recording and preserve saved opt-outs. The popup shows recording details when a recording exists, and allows review/download of sanitized diagnostic JSON and preview/download of video.</li>
+<li>LocalStorage attachment defaults OFF and is not restored from drafts. You must request a snapshot, review its REDACTED contents in the popup, and choose which keys to include before attaching. Submission uses the reviewed snapshot; it does not silently recapture localStorage.</li>
+<li>Diagnostic redaction uses heuristics to mask credential fields in headers, bodies, URLs, console messages, and localStorage snapshots. Diagnostic data may also be truncated. Sanitization is not guaranteed to remove all credentials, secrets, or personal information. Review sanitized JSON and omit unsafe keys or evidence before sharing.</li>
+<li>Screenshots and videos can expose anything visible in the captured tab; do not assume diagnostic redaction sanitizes images or video.</li>
+</ul>
+<h2>Where data is stored</h2>
+<ul>
+<li>Settings, credentials, optional versioned recording approvals, recent issue history, and suggestions are stored locally in <code>chrome.storage.local</code>. Remembered approvals persist across browser restarts until reset or invalidated by a disclosure/scope change; they are not uploaded to Jira. This is local Chrome storage, not an encrypted credential vault.</li>
+<li>Drafts and recordings use <code>chrome.storage.session</code> where available, with a <code>chrome.storage.local</code> fallback. Recordings remain until cleared/reset or until the browser session ends when session storage is used. Fallback local data can persist across browser restarts until explicitly cleared/reset.</li>
+<li>Closing the popup does not stop recording or delete saved evidence. Clear/reset drafts and recordings when they are no longer needed. Local settings/history remain until removed or the extension&#39;s local data is deleted.</li>
+<li>Downloaded exports are separate files under your control and remain until you delete them. Jira issues and attachments are stored by your Jira instance according to its retention policies. Clearing extension data does not delete downloads or Jira data.</li>
+</ul>
+<h2>Where data is sent</h2>
+<ul>
+<li>Jira API requests, including authentication, connection testing, issue creation, and selected evidence uploads, go only to the HTTPS Jira Server/Data Center base URL you configure. HTTP Jira URLs are rejected.</li>
+<li>Jira fetch redirects are rejected to avoid forwarding credentials or evidence to a redirected endpoint. Configure the final HTTPS base URL, including any context path.</li>
+<li>No captured data is sent to developer servers, analytics providers, or advertising services.</li>
+</ul>
+<h2>Data sharing</h2>
+<ul>
+<li>The developer does not sell user data or share it for advertising or unrelated purposes.</li>
+<li>At your direction, issue content and selected evidence are shared with your configured Jira instance. Uploaded content is visible to users and administrators authorized under that Jira instance&#39;s access rules and is subject to its operator&#39;s policies.</li>
+</ul>
+<h2>Chrome Web Store Limited Use</h2>
+<p>test2task&#39;s use and transfer of information received from Google APIs adheres to the Chrome Web Store User Data Policy, including the Limited Use requirements. Data is used only to provide the user-facing features described in this policy.</p>
+<h2>Public website and support</h2>
+<p>The public documentation site and support tracker are hosted by GitHub. When you visit them or submit a support issue, GitHub handles those interactions under the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a>, including standard website request information. The documentation pages contain no analytics scripts. The extension does not automatically send captured evidence or Jira credentials to this site or tracker. Support issues are public; share only synthetic or redacted information.</p>
+<h2>Permissions</h2>
+<ul>
+<li><code>storage</code> stores settings and workflow data locally; <code>activeTab</code> provides user-invoked access for active-tab capture. There is no mandatory <code>tabs</code> permission.</li>
+<li>Optional <code>scripting</code> permission is requested at runtime when you request a localStorage snapshot.</li>
+<li><code>debugger</code> is a required manifest permission because Chrome does not support it as an optional permission. It is used for network/console recording only after explicit in-popup consent. Installing or updating the extension does not itself start recording.</li>
+<li><code>tabCapture</code> and <code>offscreen</code> support tab-only video without audio, including continuing a recording after the popup closes.</li>
+<li>Optional host access is requested for the configured Jira host on save/test so the extension can make Jira API requests. There is no default access to all websites.</li>
+</ul>
+<h2>User control</h2>
+<ul>
+<li>You decide whether to capture evidence and which evidence to attach. Review issue text, sanitized diagnostic JSON, localStorage keys, screenshots, and video before uploading.</li>
+<li>You can stop recordings, clear/reset drafts and recorded evidence, and use Clear Credentials to remove the stored token/password.</li>
+<li>Clear Credentials does not revoke a Jira token or erase existing Jira issues or attachments. Revoke tokens through Jira and request removal of uploaded content through your Jira administrator or instance controls. Delete downloaded exports separately.</li>
+<li>You can revoke optional extension permissions through Chrome. Removing access does not erase content already uploaded to Jira.</li>
+</ul>
+<h2>Changes to this policy</h2>
+<p>We may update this policy as the extension evolves. Changes will be reflected in this file.</p>
+<h2>Contact</h2>
+<p>For privacy questions or support, use the <a href="https://github.com/baransonmez/test2task-site/issues">public test2task support tracker</a>. The tracker is public: do not post credentials, personal information, private URLs, or confidential captured evidence. If a question needs sensitive details, first request a private contact channel without including those details in the issue.</p></main>
+  <footer class="site-footer"><span>test2task / Privacy policy</span><a href="https://github.com/baransonmez/test2task-site/issues">Public support tracker</a></footer>
+</body>
+</html>
