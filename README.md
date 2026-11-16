@@ -2,20 +2,19 @@
 
 This directory is the complete allowlisted content for a separate public documentation repository, `baransonmez/test2task-site`. It does not contain extension source, settings exports, credentials, real captured evidence, or reviewer credentials.
 
-## Planned Public URLs
+## Public URLs
 - Home: https://baransonmez.github.io/test2task-site/
 - Privacy: https://baransonmez.github.io/test2task-site/privacy.html
 - Support information: https://baransonmez.github.io/test2task-site/support.html
 - Public issue tracker: https://github.com/baransonmez/test2task-site/issues
 
-These URLs must be verified after deployment. Preparing these files does not create or publish the repository.
+GitHub Pages publishes this documentation from the `main` branch, root (`/`), with HTTPS enforced. The public pages and support tracker were verified on 2026-11-16. Viewing the documentation and issue tracker requires no authentication; submitting a support issue requires a GitHub account.
 
-## Publishing
-1. Restore GitHub authentication and verify the intended account can create `baransonmez/test2task-site`.
-2. Obtain explicit approval to publish these documentation files to a public repository. Do not change the visibility of the extension's source repository.
-3. Regenerate `privacy.html` and `icon.png` from the extension workspace using `node scripts/generate-public-site.mjs`.
-4. Publish only the contents of this directory to the documentation repository's `main` branch. Keep `.nojekyll` and the public issue templates.
-5. Enable Issues and GitHub Pages from `main`, root (`/`). Verify that all public URLs load without authentication.
-6. Configure the verified URLs in the Chrome Web Store dashboard. Never place Jira reviewer credentials in this public repository.
+## Maintaining the Site
+1. Regenerate `privacy.html` and `icon.png` from the extension workspace using `node scripts/generate-public-site.mjs` after policy changes.
+2. Review changes and publish only approved documentation files to this repository's `main` branch. Keep `.nojekyll` and the public issue templates. Do not expose the extension source or private captured data.
+3. Verify that Pages deployment succeeds and all public URLs still load without authentication.
+4. Keep Chrome Web Store disclosures synchronized with the hosted policy and the actual extension build. Store submission is a separate publisher action.
+5. Never place Jira reviewer credentials in this public repository. Supply reviewer access only through the Store dashboard's private testing instructions.
 
 The extension workspace's `privacy-policy.md` is the policy source of truth. Regenerate and redeploy the public privacy page whenever that policy changes.
