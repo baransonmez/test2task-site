@@ -5,86 +5,225 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Get help with test2task. Report bugs using synthetic or redacted examples, without exposing credentials or private captured data."
+      content="Set up test2task for Jira Server/Data Center, create your first report, and troubleshoot recording, connection, and attachment problems."
     />
-    <title>Support | test2task</title>
+    <title>Setup and Support | test2task</title>
     <link rel="icon" href="./icon.png" type="image/png" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
-      <a class="brand" href="./"><img src="./icon.png" width="36" height="36" alt="" />test2task</a>
+      <a class="brand" href="./" aria-label="test2task home"
+        ><img src="./icon.png" width="36" height="36" alt="" />test2task</a
+      >
       <nav aria-label="Main navigation">
-        <a href="./privacy.html">Privacy</a><a href="./support.html" aria-current="page">Support</a>
+        <a href="./#how-it-works">How it works</a><a href="#setup">Setup</a
+        ><a href="./privacy.html">Privacy</a
+        ><a href="./support.html" aria-current="page">Support</a>
       </nav>
     </header>
-    <main id="main" class="document">
-      <p class="eyebrow">SUPPORT</p>
-      <h1>Tell us what happened.</h1>
+    <main id="main" class="document guide">
+      <p class="eyebrow">SETUP AND SUPPORT</p>
+      <h1>Get your first report out.</h1>
       <p class="intro">
-        Use the public GitHub issue tracker for bugs, questions, and feature requests. A GitHub
-        account is required to submit an issue.
+        Start here if you already have test2task installed in Chrome. You need an HTTPS Jira
+        Server/Data Center instance and an account allowed to create issues and upload attachments.
+        Jira Cloud is not supported yet.
       </p>
-      <a class="button" href="https://github.com/baransonmez/test2task-site/issues/new/choose"
-        >Open a support request</a
-      >
-      <aside class="notice" aria-label="Public data warning">
-        <strong>Support issues are public.</strong> Never post passwords, API tokens, Authorization
-        headers, unredacted logs, site-storage snapshots, private Jira URLs, or screenshots/video
-        containing confidential information. Use a synthetic example instead.
-      </aside>
-      <h2>Helpful details</h2>
-      <ul>
-        <li>Extension version and Chrome version.</li>
-        <li>Your operating system.</li>
-        <li>
-          Whether the problem affects screenshots, recording, annotation, settings, or Jira
+      <nav class="guide-nav" aria-label="Guide sections">
+        <a href="#setup">Connect Jira</a><a href="#first-report">First report</a
+        ><a href="#recording">Recording</a><a href="#troubleshooting">Troubleshooting</a
+        ><a href="#contact">Get help</a>
+      </nav>
+
+      <section id="setup" aria-labelledby="setup-title">
+        <h2 id="setup-title">1. Connect your Jira</h2>
+        <p>
+          Enter credentials in the extension's Settings page, not on this website or in a public
+          support issue.
+        </p>
+        <ol class="guide-steps">
+          <li>
+            <strong>Open Settings from the popup.</strong> Enter the final HTTPS Jira base URL.
+            Include a context path when needed, for example
+            <code>https://jira.example.test/jira</code>. HTTP and API redirects are not accepted.
+          </li>
+          <li>
+            <strong>Choose authentication.</strong> Use a Jira personal access token when your
+            instance supports it. Basic authentication with username/password is a fallback for
+            instances that require it. Use an account with only the access you need.
+          </li>
+          <li>
+            <strong>Set the project and issue type.</strong> Use a real project key and an issue
+            type available in that project, such as Task or Defect. Optional labels, components,
+            priority, and assignee defaults can be left empty for your first test.
+          </li>
+          <li>
+            <strong>Test the connection, then save.</strong> Test connection calls your Jira's
+            <code>/rest/api/2/myself</code> endpoint. Allow Chrome access to the configured Jira
+            origin when requested, then save the settings.
+          </li>
+        </ol>
+        <p class="hint">
+          This documentation page does not connect to Jira or receive your credentials. Access to an
+          internal Jira may require your organization's network or VPN.
+        </p>
+      </section>
+
+      <section id="first-report" aria-labelledby="report-title">
+        <h2 id="report-title">2. Create a small test report</h2>
+        <ol class="guide-steps">
+          <li>Open the webpage you are testing and click the test2task extension icon.</li>
+          <li>
+            Enter a short summary and a description of the steps, expected result, and actual
+            result. Start without optional attachments to check issue creation.
+          </li>
+          <li>
+            Confirm the project and issue type. Expand More fields and use Load fields if Jira
+            requires additional values.
+          </li>
+          <li>Click Create issue. Open the returned issue link and verify the report.</li>
+          <li>
+            For a second report, capture a screenshot. Rename it beside the preview or open Annotate
+            to add pen marks, arrows, or text, then Save annotation. Remove any screenshot you do
+            not intend to share.
+          </li>
+        </ol>
+        <p>
+          Capture of a visible tab is not full-page or desktop-wide capture. If an issue is created
+          but an attachment fails, keep its issue link and inspect it before trying another issue
           submission.
-        </li>
-        <li>
-          Steps to reproduce, expected behavior, actual behavior, and a sanitized error message.
-        </li>
-        <li>
-          Whether Jira is Server or Data Center. Do not include private hostnames or credentials.
-        </li>
-      </ul>
-      <h2>Before reporting</h2>
-      <ul>
-        <li>
-          Reload the extension at <code>chrome://extensions</code> and reopen its popup after an
-          update.
-        </li>
-        <li>
-          Use an HTTPS Jira base URL, including the correct context path. API redirects are
-          rejected.
-        </li>
-        <li>Try capture on a normal webpage, not a restricted browser page.</li>
-        <li>
-          For recording, click Record and confirm the first-use disclosure unless you previously
-          remembered approval.
-        </li>
-        <li>
-          Stop recordings before attaching them. An attachment failure can occur after the issue was
-          created; check the returned issue link before creating another issue.
-        </li>
-      </ul>
-      <h2>Privacy questions</h2>
-      <p>
-        Read the <a href="./privacy.html">privacy policy</a>. You may open a support request about
-        privacy without posting personal data or captured evidence. If sensitive details are
-        necessary, first request a private contact channel without including those details in the
-        public issue.
-      </p>
-      <p>
-        Clear Credentials removes the credentials stored by the extension, but does not revoke a
-        Jira token. Clear/reset captured evidence when no longer needed. Uploaded content must be
-        managed through your Jira instance; downloaded files must be deleted separately.
-      </p>
+        </p>
+      </section>
+
+      <section id="recording" aria-labelledby="recording-title">
+        <h2 id="recording-title">3. Add logs or video when needed</h2>
+        <h3>Network and console</h3>
+        <p>
+          Click Record under Network &amp; console. On first use, read the disclosure and choose
+          Start recording. Reproduce the problem, reopen the popup if necessary, and click Stop.
+          Review or download the diagnostic JSON, then explicitly check Attach logs to issue if you
+          want to upload it.
+        </p>
+        <h3>Screen video</h3>
+        <p>
+          Click Record under Screen video and approve the first-use disclosure. The active tab is
+          recorded without audio. Stop the recording, preview or download it, then choose Attach
+          video or export a GIF and select it explicitly.
+        </p>
+        <aside class="notice">
+          <strong>Closing the popup does not stop recording.</strong> Reopen it and press Stop, or
+          clear/reset the recording when finished. Chrome may show its own recording or debugging
+          indicators.
+        </aside>
+        <h3>Remembered approvals</h3>
+        <p>
+          Remember my choice skips the extra disclosure for that recording type on this browser. It
+          does not start recording automatically or select the result for upload. To show the
+          disclosure again, use Settings &rarr; Screen recording &rarr; Reset recording approvals.
+          Resetting approvals does not stop an active recording or revoke Chrome permissions.
+        </p>
+        <h3>Site storage</h3>
+        <p>
+          Keep this off unless it is useful for the report. Click Review site storage, approve the
+          read and scripting permission if requested, select specific keys, and inspect the JSON
+          before using it. No keys are preselected. This reviewed snapshot is not replaced by a
+          fresh capture during issue submission.
+        </p>
+        <p>
+          Credential redaction is heuristic, not complete. It does not redact screenshots or video.
+          Review all evidence and avoid uploading secrets or personal information.
+        </p>
+      </section>
+
+      <section id="troubleshooting" aria-labelledby="troubleshooting-title">
+        <h2 id="troubleshooting-title">Troubleshooting</h2>
+        <div class="faq-list">
+          <details>
+            <summary>Connection test returns 401, 403, or 404</summary>
+            <p>
+              <strong>401:</strong> check the selected authentication method and token/credentials.
+              <strong>403:</strong> check account and project permissions.
+              <strong>404:</strong> check the base URL and context path. Use the final HTTPS
+              endpoint rather than a URL that redirects to a login or another path.
+            </p>
+          </details>
+          <details>
+            <summary>Jira asks for more fields or rejects an issue type</summary>
+            <p>
+              Use an issue type that exists in the selected project. In More fields, load
+              Jira-required fields and complete the missing values. For an initial test, remove
+              optional defaults that do not exist in that project. Custom JSON must match Jira API
+              field formats.
+            </p>
+          </details>
+          <details>
+            <summary>Record does not start, or a permission error appears</summary>
+            <p>
+              Reload/re-enable test2task at <code>chrome://extensions</code> after updating it and
+              accept Chrome's permission warning when requested. Click Record and then Start
+              recording unless approval was remembered. Try a normal webpage rather than a
+              restricted browser page. For logs, close DevTools on the target tab and stop other
+              debugger sessions before retrying.
+            </p>
+          </details>
+          <details>
+            <summary>A recording is black or will not play in Jira</summary>
+            <p>
+              First preview or download the complete file from test2task to distinguish a capture
+              problem from Jira player compatibility. Browser support for WebM/MP4 varies; Settings
+              offers MP4 where supported and may fall back to WebM. Browser-restricted or protected
+              content may not be capturable. Include a synthetic reproduction when reporting a
+              problem.
+            </p>
+          </details>
+          <details>
+            <summary>The issue exists, but an attachment is missing</summary>
+            <p>
+              Check the issue link and attachment warning rather than creating another issue
+              immediately. The extension limits each file to 10 MB, and Jira can have a lower limit.
+              Download logs/video when available and attach them manually through Jira if needed.
+              Large videos are not split into byte fragments.
+            </p>
+          </details>
+          <details>
+            <summary>How do I clear captured data or credentials?</summary>
+            <p>
+              Clear individual captures or reset the draft when finished. Clear Credentials in
+              Settings removes stored Jira credentials but does not revoke the token in Jira. Revoke
+              tokens through your Jira account separately. Local deletion does not delete downloaded
+              files or content already uploaded to Jira.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <section id="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title">Still need help?</h2>
+        <p>
+          Use the public GitHub tracker for bugs, questions, and feature requests. A GitHub account
+          is required to submit an issue.
+        </p>
+        <a class="button" href="https://github.com/baransonmez/test2task-site/issues/new/choose"
+          >Open a support request <span aria-hidden="true">&rarr;</span></a
+        >
+        <aside class="notice" aria-label="Public data warning">
+          <strong>Support issues are public.</strong> Never post passwords, API tokens,
+          Authorization headers, unredacted logs, site-storage snapshots, private Jira URLs, or
+          confidential screenshots/video. Use a synthetic or redacted example.
+        </aside>
+        <p>
+          Include the extension and Chrome versions, operating system, affected feature,
+          reproduction steps, and sanitized error message. For a privacy question, read the
+          <a href="./privacy.html">privacy policy</a> and request a private contact channel before
+          sharing sensitive details.
+        </p>
+      </section>
     </main>
     <footer class="site-footer">
-      <span>test2task / Jira Server and Data Center</span
-      ><a href="./privacy.html">Privacy policy</a>
+      <span>test2task / Jira Server and Data Center</span>
+      <div><a href="./">How it works</a><a href="./privacy.html">Privacy policy</a></div>
     </footer>
   </body>
 </html>
